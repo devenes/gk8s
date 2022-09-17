@@ -398,7 +398,7 @@ Terraform will perform the following actions:
         }
 
       + workload_identity_config {
-          + workload_pool = "ace-anthos-poc.svc.id.goog"
+          + workload_pool = "yout-project-id.svc.id.goog"
         }
     }
 
@@ -529,12 +529,12 @@ Terraform will perform the following actions:
         }
     }
 
-  # google_project_iam_member.service-a will be created
-  + resource "google_project_iam_member" "service-a" {
+  # google_project_iam_member.svc-devenes will be created
+  + resource "google_project_iam_member" "svc-devenes" {
       + etag    = (known after apply)
       + id      = (known after apply)
       + member  = (known after apply)
-      + project = "ace-anthos-poc"
+      + project = "yout-project-id"
       + role    = "roles/storage.admin"
     }
 
@@ -565,9 +565,9 @@ Terraform will perform the following actions:
       + unique_id  = (known after apply)
     }
 
-  # google_service_account.service-a will be created
-  + resource "google_service_account" "service-a" {
-      + account_id = "service-a"
+  # google_service_account.svc-devenes will be created
+  + resource "google_service_account" "svc-devenes" {
+      + account_id = "svc-devenes"
       + disabled   = false
       + email      = (known after apply)
       + id         = (known after apply)
@@ -576,8 +576,8 @@ Terraform will perform the following actions:
       + unique_id  = (known after apply)
     }
 
-  # google_service_account_iam_member.service-a will be created
-  + resource "google_service_account_iam_member" "service-a" {
+  # google_service_account_iam_member.svc-devenes will be created
+  + resource "google_service_account_iam_member" "svc-devenes" {
       + etag               = (known after apply)
       + id                 = (known after apply)
       + member             = (known after apply)
@@ -586,4 +586,44 @@ Terraform will perform the following actions:
     }
 
 Plan: 15 to add, 0 to change, 0 to destroy.
+```
+
+## Apply
+
+```ruby
+❯ terraform apply
+google_project_service.compute: Refreshing state... [id=yout-project-id/compute.googleapis.com]
+google_project_service.container: Refreshing state... [id=yout-project-id/container.googleapis.com]
+google_service_account.svc-devenes: Refreshing state... [id=projects/yout-project-id/serviceAccounts/svc-devenes@yout-project-id.iam.gserviceaccount.com]
+google_service_account.kubernetes: Refreshing state... [id=projects/yout-project-id/serviceAccounts/kubernetes@yout-project-id.iam.gserviceaccount.com]
+google_service_account_iam_member.svc-devenes: Refreshing state... [id=projects/yout-project-id/serviceAccounts/svc-devenes@yout-project-id.iam.gserviceaccount.com/roles/iam.workloadIdentityUser/serviceAccount:yout-project-id.svc.id.goog[staging/svc-devenes]]
+google_project_iam_member.svc-devenes: Refreshing state... [id=yout-project-id/roles/storage.admin/serviceAccount:svc-devenes@yout-project-id.iam.gserviceaccount.com]
+google_compute_network.main: Refreshing state... [id=projects/yout-project-id/global/networks/main]
+google_compute_address.nat: Refreshing state... [id=projects/yout-project-id/regions/us-central1/addresses/nat]
+google_compute_router.router: Refreshing state... [id=projects/yout-project-id/regions/us-central1/routers/router]
+google_compute_subnetwork.private: Refreshing state... [id=projects/yout-project-id/regions/us-central1/subnetworks/private]
+google_compute_firewall.allow_ssh: Refreshing state... [id=projects/yout-project-id/global/firewalls/allow-ssh]
+google_compute_router_nat.nat: Refreshing state... [id=yout-project-id/us-central1/router/nat]
+google_container_cluster.primary: Refreshing state... [id=projects/yout-project-id/locations/us-central1-a/clusters/primary]
+google_container_node_pool.spot: Refreshing state... [id=projects/yout-project-id/locations/us-central1-a/clusters/primary/nodePools/spot]
+google_container_node_pool.general: Refreshing state... [id=projects/yout-project-id/locations/us-central1-a/clusters/primary/nodePools/general]
+
+No changes. Your infrastructure matches the configuration.
+```
+
+## Add Nginx Ingress with Helm
+
+```ruby
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm search repo nginx
+helm install nginx-ingress ingress-nginx/ingress-nginx
+```
+
+```ruby
+helm install my-ing ingress-nginx/ingress-nginx \
+  --namespace ingress \
+  --version 4.2.5 \
+  --values nginx-values.yaml \
+  --create-namespace
 ```
