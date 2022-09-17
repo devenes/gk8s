@@ -1,4 +1,4 @@
-```s
+```ruby
 Terraform will perform the following actions:
 
   # google_compute_address.nat will be created
