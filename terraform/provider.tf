@@ -1,14 +1,14 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs
 provider "google" {
-  project = "devops-v4"
-  region  = "us-central1"
+  project = var.project_id
+  region  = var.region
 }
 
 # https://www.terraform.io/language/settings/backends/gcs
 terraform {
   backend "gcs" {
-    bucket = "antonputra-tf-state-staging"
-    prefix = "terraform/state"
+    bucket = var.backend_bucket_name
+    prefix = var.backend_prefix
   }
   required_providers {
     google = {

@@ -1,6 +1,6 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_service_account
 resource "google_service_account" "service-a" {
-  account_id = "service-a"
+  account_id = var.account_id
 }
 
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/google_project_iam
