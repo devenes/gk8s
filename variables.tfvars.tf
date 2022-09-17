@@ -1,4 +1,4 @@
-variable "account_id" {
+variable "storage_service_account_id" {
   description = "The account id of the service account"
   type        = string
 }
@@ -41,5 +41,10 @@ variable "cluster_primary_zone" {
 
 variable "cluster_multi_zones" {
   description = "The location of the multi cluster"
-  type        = array
+  type        = list(string)
+}
+
+variable "kubernetes_service_account_id" {
+  description = "The service account of the kubernetes cluster"
+  type        = string
 }
