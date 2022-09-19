@@ -398,7 +398,7 @@ Terraform will perform the following actions:
         }
 
       + workload_identity_config {
-          + workload_pool = "yout-project-id.svc.id.goog"
+          + workload_pool = "your-project-id.svc.id.goog"
         }
     }
 
@@ -534,7 +534,7 @@ Terraform will perform the following actions:
       + etag    = (known after apply)
       + id      = (known after apply)
       + member  = (known after apply)
-      + project = "yout-project-id"
+      + project = "your-project-id"
       + role    = "roles/storage.admin"
     }
 
@@ -592,21 +592,21 @@ Plan: 15 to add, 0 to change, 0 to destroy.
 
 ```ruby
 ❯ terraform apply
-google_project_service.compute: Refreshing state... [id=yout-project-id/compute.googleapis.com]
-google_project_service.container: Refreshing state... [id=yout-project-id/container.googleapis.com]
-google_service_account.svc-devenes: Refreshing state... [id=projects/yout-project-id/serviceAccounts/svc-devenes@yout-project-id.iam.gserviceaccount.com]
-google_service_account.kubernetes: Refreshing state... [id=projects/yout-project-id/serviceAccounts/kubernetes@yout-project-id.iam.gserviceaccount.com]
-google_service_account_iam_member.svc-devenes: Refreshing state... [id=projects/yout-project-id/serviceAccounts/svc-devenes@yout-project-id.iam.gserviceaccount.com/roles/iam.workloadIdentityUser/serviceAccount:yout-project-id.svc.id.goog[staging/svc-devenes]]
-google_project_iam_member.svc-devenes: Refreshing state... [id=yout-project-id/roles/storage.admin/serviceAccount:svc-devenes@yout-project-id.iam.gserviceaccount.com]
-google_compute_network.main: Refreshing state... [id=projects/yout-project-id/global/networks/main]
-google_compute_address.nat: Refreshing state... [id=projects/yout-project-id/regions/us-central1/addresses/nat]
-google_compute_router.router: Refreshing state... [id=projects/yout-project-id/regions/us-central1/routers/router]
-google_compute_subnetwork.private: Refreshing state... [id=projects/yout-project-id/regions/us-central1/subnetworks/private]
-google_compute_firewall.allow_ssh: Refreshing state... [id=projects/yout-project-id/global/firewalls/allow-ssh]
-google_compute_router_nat.nat: Refreshing state... [id=yout-project-id/us-central1/router/nat]
-google_container_cluster.primary: Refreshing state... [id=projects/yout-project-id/locations/us-central1-a/clusters/primary]
-google_container_node_pool.spot: Refreshing state... [id=projects/yout-project-id/locations/us-central1-a/clusters/primary/nodePools/spot]
-google_container_node_pool.general: Refreshing state... [id=projects/yout-project-id/locations/us-central1-a/clusters/primary/nodePools/general]
+google_project_service.compute: Refreshing state... [id=your-project-id/compute.googleapis.com]
+google_project_service.container: Refreshing state... [id=your-project-id/container.googleapis.com]
+google_service_account.svc-devenes: Refreshing state... [id=projects/your-project-id/serviceAccounts/svc-devenes@your-project-id.iam.gserviceaccount.com]
+google_service_account.kubernetes: Refreshing state... [id=projects/your-project-id/serviceAccounts/kubernetes@your-project-id.iam.gserviceaccount.com]
+google_service_account_iam_member.svc-devenes: Refreshing state... [id=projects/your-project-id/serviceAccounts/svc-devenes@your-project-id.iam.gserviceaccount.com/roles/iam.workloadIdentityUser/serviceAccount:your-project-id.svc.id.goog[staging/svc-devenes]]
+google_project_iam_member.svc-devenes: Refreshing state... [id=your-project-id/roles/storage.admin/serviceAccount:svc-devenes@your-project-id.iam.gserviceaccount.com]
+google_compute_network.main: Refreshing state... [id=projects/your-project-id/global/networks/main]
+google_compute_address.nat: Refreshing state... [id=projects/your-project-id/regions/us-central1/addresses/nat]
+google_compute_router.router: Refreshing state... [id=projects/your-project-id/regions/us-central1/routers/router]
+google_compute_subnetwork.private: Refreshing state... [id=projects/your-project-id/regions/us-central1/subnetworks/private]
+google_compute_firewall.allow_ssh: Refreshing state... [id=projects/your-project-id/global/firewalls/allow-ssh]
+google_compute_router_nat.nat: Refreshing state... [id=your-project-id/us-central1/router/nat]
+google_container_cluster.primary: Refreshing state... [id=projects/your-project-id/locations/us-central1-a/clusters/primary]
+google_container_node_pool.spot: Refreshing state... [id=projects/your-project-id/locations/us-central1-a/clusters/primary/nodePools/spot]
+google_container_node_pool.general: Refreshing state... [id=projects/your-project-id/locations/us-central1-a/clusters/primary/nodePools/general]
 
 No changes. Your infrastructure matches the configuration.
 ```
