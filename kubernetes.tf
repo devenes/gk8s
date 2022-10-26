@@ -1,6 +1,6 @@
 # https://registry.terraform.io/providers/hashicorp/google/latest/docs/resources/container_cluster
 resource "google_container_cluster" "primary" {
-  name                     = "primary"
+  name                     = var.gke_cluster_name_primary
   location                 = var.cluster_primary_zone
   remove_default_node_pool = true
   initial_node_count       = 1

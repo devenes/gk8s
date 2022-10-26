@@ -48,3 +48,8 @@ variable "kubernetes_service_account_id" {
   description = "The service account of the kubernetes cluster"
   type        = string
 }
+
+variable "gke_cluster_name_primary" {
+  description = "The name of the kubernetes cluster"
+  type        = string
+}
