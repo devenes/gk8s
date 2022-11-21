@@ -1,3 +1,12 @@
+<div align="center" id="top"> 
+  <img src="./gcp.gif" alt="GCP" />
+</div>
+
+&#xa0;
+&#xa0;
+
+## Terraform resources plan
+
 ```ruby
 Terraform will perform the following actions:
 
@@ -591,7 +600,7 @@ Plan: 15 to add, 0 to change, 0 to destroy.
 ## Apply
 
 ```ruby
-❯ terraform apply
+$ terraform apply
 google_project_service.compute: Refreshing state... [id=your-project-id/compute.googleapis.com]
 google_project_service.container: Refreshing state... [id=your-project-id/container.googleapis.com]
 google_service_account.svc-devenes: Refreshing state... [id=projects/your-project-id/serviceAccounts/svc-devenes@your-project-id.iam.gserviceaccount.com]
